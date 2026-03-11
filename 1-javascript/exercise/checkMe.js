@@ -9,18 +9,22 @@ let language = {
 
 console.log(language); // { name: 'JavaScript', ... }
 console.log(language.officialName); // ECMAScript
-console.log(language.creater); // undefined
+console.log(language.creator); // undefined
 
 
-language = 'TypeScript'; // String replacing object? JS don't care!
+language ={
+
+ // String replacing object? JS don't care!
 // Setting random properties on a String? (non-strict) JS don't care!
-language.released = 2012;
-language.creator = 'Anders Hejlsberg';
-language.company = 'Microsoft';
+name : 'TypeScript',
+officialName : 'TypeScript',
+released : 2012,
+creator : 'Anders Hejlsberg',
+company : 'Microsoft'}
 
 console.log(language); // TypeScript
 console.log(language.released); // undefined
-console.lgo(language.company); // TypeError: console.lgo is not a function
+console.log(language.company); // TypeError: console.log is not a function
 console.log(language.officialName); // undefined
 
 
