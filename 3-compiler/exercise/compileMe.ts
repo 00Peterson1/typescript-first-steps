@@ -2,13 +2,23 @@ interface HasId {
     id: Id; // declare this type!
 }
 
+type Id = number;
+
 interface User extends HasId {
     // complete me!
+    username: string;
+    name: string;
+    email?: string;
 };
 
 
 interface Event extends HasId {
     // complete me!
+    host_id: Id;
+    date: Date;
+    title: string;
+    image_url?: string;
+    description?: string;
 }
 
 
@@ -30,13 +40,20 @@ function createUser(username: string, name: string, email?: string): User {
         id: createNextId<User>(USERS),
         username,
         name,
+        email
     };
     if (email) { user.email = email };
     USERS.push(user);
     return user;
 }
 
-// declare the missing EventDetailsWithoutIds type!
+type EventDetailsWithoutIds = {
+    date: string;
+    title: string;
+    image_url?: string;
+    description?: string;
+};
+
 function createEvent(host: User, eventDetails: EventDetailsWithoutIds): Event {
     const { date, title, image_url, description } = eventDetails;
     const eventDate = new Date(date);
